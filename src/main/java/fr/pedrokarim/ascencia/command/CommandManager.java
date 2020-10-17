@@ -4,7 +4,7 @@ package fr.pedrokarim.ascencia.command;
 import fr.pedrokarim.ascencia.Ascencia;
 import fr.pedrokarim.ascencia.command.lots.CommandBot;
 import fr.pedrokarim.ascencia.command.lots.CommandDefault;
-import fr.pedrokarim.ascencia.command.lots.HelpCommand;
+import fr.pedrokarim.ascencia.command.lots.CommandHelp;
 import fr.pedrokarim.ascencia.config.Config;
 import fr.pedrokarim.ascencia.modules.music.MusicCommand;
 import net.dv8tion.jda.api.JDA;
@@ -28,7 +28,7 @@ public class CommandManager {
     public CommandManager(Ascencia ascencia) {
         this.ascencia = ascencia;
 
-        registerCommands(new CommandDefault(ascencia), new CommandBot(ascencia), new MusicCommand(), new HelpCommand(this));
+        registerCommands(new CommandDefault(ascencia), new CommandBot(ascencia), new MusicCommand(), new CommandHelp(this));
     }
 
     public String getPrefix() {
@@ -133,7 +133,7 @@ public class CommandManager {
             execute(((Command) object[0]), command, (String[]) object[1], null);
         } catch (Exception e) {
             System.out.println("La methode (" + ((Command) object[0]).getMethod().getName() + ") n'est pas correctement innitialisé. " + e.getMessage());
-            Logger.getLogger(HelpCommand.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(CommandHelp.class.getName()).log(Level.SEVERE, null, e);
         }
     }
 
@@ -146,7 +146,7 @@ public class CommandManager {
             execute(((Command) object[0]), command, (String[]) object[1], message);
         } catch (Exception e) {
             System.out.println("La methode (" + ((Command) object[0]).getMethod().getName() + ") n'est pas correctement initialisé. ");
-            Logger.getLogger(HelpCommand.class.getName()).log(Level.SEVERE, null, e);
+            Logger.getLogger(CommandHelp.class.getName()).log(Level.SEVERE, null, e);
         }
         return true;
     }

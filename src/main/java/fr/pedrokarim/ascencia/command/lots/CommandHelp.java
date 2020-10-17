@@ -8,11 +8,11 @@ import net.dv8tion.jda.api.EmbedBuilder;
 import net.dv8tion.jda.api.entities.MessageChannel;
 import net.dv8tion.jda.api.entities.User;
 
-public class HelpCommand {
+public class CommandHelp {
 
     private final CommandManager commandManager;
 
-    public HelpCommand(CommandManager commandManager){
+    public CommandHelp(CommandManager commandManager){
         this.commandManager = commandManager;
     }
 
